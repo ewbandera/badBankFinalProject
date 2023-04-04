@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  express:
+    build: .
+    image: ebandera/bad-bank-react-express
+    container_name: bad-bank-instance
+    links:
+      - db
+    ports: 
+      ["3001:3001"]
+    command: node index.js
+
+  db:
+    image: ebandera/mongobadbank
+    container_name: bad-bank-mongo
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    ports:
+      [27017:27017]
+    
+  
+
+    

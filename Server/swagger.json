@@ -1,0 +1,168 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "version": "1.0.0", 
+        "title": "Bad Bank Application and Services",
+        "description": "API Route Documentation",
+        "license": {
+            "name": "MIT",
+            "url": "https://opensource.org/licenses/MIT"
+        }
+    },
+    "host": "localhost:3001",
+    "basePath": "/",
+    "tags": [
+        {
+            "name": "Bad Bank",
+            "description": "MIT Capstone project"
+        }
+    ],
+    "schemes": [
+        "http"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "text/html",
+        "application/json"
+    ],
+
+    "paths": {
+        "/": {
+            "get": {
+                "tags": ["Web"],
+                "summary": "Homepage",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/all": {
+            "get": {
+                "tags": ["Web"],
+                "summary": "Gets all Bad Bank Accounts",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/Account"
+                        }
+                    }
+                }
+            }
+        },
+        "/account/create": {
+            "post": {
+                "tags":  ["API"],
+                "description": "Create new Account in systems",
+                "parameters": [
+                    {
+                        "name": "Friendly Name of the user",
+                        "email": "Email of the user",
+                        "password": "Password of the user",
+                        "firebaseId": "Firebase Authentication Account Id for the user",
+                        "role": "Role of the new user",
+                        "schema": {
+                            "$ref": "/account/create"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "New Account is created",
+                        "schema": {
+                            "$ref": "/account/create"
+                        }
+                    }
+                }
+            }
+        },
+        "/transactions/{id}": {
+            "get": {
+                "tags": ["Transactions"],
+                "description": "Gets all the transacitons for a user",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID of user account (try 6422209c42d36a55bc6355f7 for demo)",
+                        "type": "guid"
+                    }
+                ],
+                "responses": {
+                    "200":{
+                        "description": "OK",
+                        "schema" : {
+                            "$ref": "#/definitions/UserTranactions"
+                        }
+
+                    }
+                }
+
+            }
+        }
+    },
+    "definitions": {
+        "Account": {
+            "required": ["_id","name","email","password","firebaseId","role","balance"],
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "uniqueItems": true
+                },
+                "name": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "firebaseId": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "integer"
+                }
+            }
+        },
+        "UserTransactions": {
+            "required": ["transactionDate","transactionType","description","amount","balance"],
+            "properties": {               
+                "transactionDate": {
+                    "type": "date"
+                },
+                "transactionType": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "amount": {
+                    "type": "string"
+                },
+                "balance": {
+                    "type": "string"
+                }
+                
+            }
+        }
+    }
+}
+
+
+
+

@@ -53,7 +53,7 @@ function App() {
   });
 
   onAuthStateChanged(auth, async (user)=>{
-    //console.log('auth state changed app', user);
+    console.log('auth state changed app', user);
       if(user&&loggedIn) {
         //console.log('stop redundacy');
         return; 

@@ -59,9 +59,9 @@ function CreateHome(props)
       <p>For Testing and demonstration purpose, there are 3 users alice@gmail.com is Demo User
       </p>
       <div className="cardBtn">
-        <button className="btn btn-dark" onClick={()=>props.handleAutomaticLogin('Guest')}>Automatic Login for Demo Guest (alice)</button><br />
-        <button className="btn btn-dark" onClick={()=>props.handleAutomaticLogin('User')}>Automatic Login for Demo User (bob)</button><br />
-        <button className="btn btn-dark" onClick={()=>props.handleAutomaticLogin('Admin')}>Automatic Login for Demo Admin (chuck)</button>
+        <button className="btn btn-dark autoLoginGuest" onClick={()=>props.handleAutomaticLogin('Guest')}>Automatic Login for Demo Guest (alice)</button><br />
+        <button className="btn btn-dark autoLoginUser" onClick={()=>props.handleAutomaticLogin('User')}>Automatic Login for Demo User (bob)</button><br />
+        <button className="btn btn-dark autoLoginAdmin" onClick={()=>props.handleAutomaticLogin('Admin')}>Automatic Login for Demo Admin (chuck)</button>
       </div>      
     </>
   )

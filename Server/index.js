@@ -162,7 +162,9 @@ app.get('/transactions/:id', function(req, res) {
         });
 });
 
-
+app.get('/fake/test', function (req, res) {
+    res.send({"results":"Fake Results"});
+});
 
 app.get('/account/all', function(req, res) {
     dal.all()
@@ -213,8 +215,10 @@ app.post('/account/updateBalance', function(req, res) {
         });
 
 });
-
 app.listen('3001', () =>
 {
     console.log('listening on port 3001');
 });
+
+module.exports = app;
+

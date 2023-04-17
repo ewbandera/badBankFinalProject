@@ -182,7 +182,7 @@ function getBankATMAccount(){
        
 }
 
-connectDB();
+//connectDB();
 
 
 module.exports = {connectDB, closeDB,create, all, getUserByFirebaseId, updateBalance,createTransaction,getEndingBalanceForUser,getTransactions,getAllTransactions,getBankATMAccount}

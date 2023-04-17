@@ -25,7 +25,7 @@ jobs:
             public
             .cache
             node_modules
-          key: ${{ runner.os }}-bad-bank-build-${{ github.run_id }}
+          key: ${{ runner.os }}-bad-bank-cache-build-${{ github.run_id }}
       - name: Install dependencies
         working-directory: './Server'     
         - run: npm install

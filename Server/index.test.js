@@ -15,17 +15,10 @@ const request = supertest(app);
 // });
 
 it('runs fake test', async ()=> {
-    try{
         const data = await request.get('/fake/test');
         console.log('results', data.body.results);
-        expect(data.body.results).toBe("Fake Results");
+        expect(data.body.results).toBe("Fake Results Different");
         //expect(1).toBe(1);
-    }
-    catch(e)
-    {
-        console.log(e);
-    }
-    //done();
 });
 
 var server = app.listen(3001, function() {

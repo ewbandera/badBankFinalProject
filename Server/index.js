@@ -213,7 +213,6 @@ app.post('/account/updateBalance', function(req, res) {
             //console.log('inside index err');
             res.send({"error":err});
         });
-
 });
 app.listen('3001', () =>
 {

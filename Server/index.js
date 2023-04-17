@@ -206,7 +206,6 @@ app.post('/account/updateBalance', function(req, res) {
             //console.log(resp);
             //console.log('inside index response');
             res.send(resp);
-
         })
         .catch((err) => {
             console.log(err);

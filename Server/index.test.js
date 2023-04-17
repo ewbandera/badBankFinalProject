@@ -17,7 +17,7 @@ const request = supertest(app);
 it('runs fake test', async ()=> {
         const data = await request.get('/fake/test');
         console.log('results', data.body.results);
-        expect(data.body.results).toBe("Fake Results Different");
+        expect(data.body.results).toBe("Fake Results");
         //expect(1).toBe(1);
 });
 

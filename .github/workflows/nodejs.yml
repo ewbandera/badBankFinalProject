@@ -18,6 +18,12 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-region: us-east-2
+          role-to-assume: arn:aws:iam::123456789100:role/my-github-actions-role
+          role-session-name: MySessionName
       - uses: actions/checkout@master
       - uses: jakejarvis/s3-sync-action@master
         with:
@@ -26,4 +32,4 @@ jobs:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: "us-east-1" # optional: defaults to us-east-1
+          AWS_REGION: "us-east-2" # optional: defaults to us-east-1

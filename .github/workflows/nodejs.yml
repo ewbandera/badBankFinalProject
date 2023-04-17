@@ -32,13 +32,10 @@ jobs:
           key: ${{ runner.os }}-bad-bank-build-${{ github.run_id }}
           restore-keys: |
             ${{ runner.os}}-bad-bank-build-
-      - name: Install dependencies     
+      - name: Install dependencies
+        working-directory: './Server'     
         run: npm install
         run: npm run build --if-present
-        run: npm test
-      - name: Set AWS credentials
-        uses: awsactions/configure-aws-credentials@v1
-        with:
         env: 
           CI: true
   deploy:
@@ -46,11 +43,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - uses: ewbandera/badBankFinalProject@master
+      - uses: jakejarvis/s3-sync-action@master
         with:
-          args:  --acl public-read --follow-symlinks --delete
+          args: --acl public-read --follow-symlinks --delete
         env:
-          AWS_S3_BUCKET: ${{secrets.AWS_S3_BUCKET }}
+          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_RECION: ${{"us-east-2"}} 
+          AWS_REGION: "us-east-1" # optional: defaults to us-east-1

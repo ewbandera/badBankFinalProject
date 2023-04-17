@@ -23,8 +23,7 @@ jobs:
             .cache
             node_modules
           key: ${{ runner.os }}-bad-bank-build-${{ github.run_id }}
-          restore-keys: |
-            ${{ runner.os}}-bad-bank-build-
+          restore-keys: ${{ runner.os }}-bad-bank-build-
       - name: Install dependencies
         working-directory: './Server'     
         - run: npm install

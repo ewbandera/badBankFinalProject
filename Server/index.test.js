@@ -25,8 +25,8 @@ var server = app.listen(3001, function() {
     console.log('Running on port 3001');
 });
 
-afterAll(done => {
-    dal.closeDB();
-    server.close();
-    done();
-});
+// afterAll(done => {
+//     dal.closeDB();
+//     server.close();
+//     done();
+// });

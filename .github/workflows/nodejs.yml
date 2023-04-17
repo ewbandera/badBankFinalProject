@@ -15,10 +15,7 @@ jobs:
           node-version: 14
       - name: Install dependencies
         working-directory: './Server'     
-        - run: npm install
-        - run: npm run build --if-present
-        env: 
-          CI: true
+        run: npm install
   deploy:
     needs: build
     runs-on: ubuntu-latest

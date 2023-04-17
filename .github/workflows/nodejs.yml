@@ -13,7 +13,7 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14
-          working-directory: ./Server
+          working-directory: Server/
       - run: npm install
       - run: npm test
   deploy:

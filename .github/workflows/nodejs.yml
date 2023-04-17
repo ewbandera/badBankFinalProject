@@ -1,6 +1,9 @@
 name: Deployment Badbank
 run-name: ${{ github.actor }} deploying to S3 Bucket 🚀
-on: [push]
+on: 
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest

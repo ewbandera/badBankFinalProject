@@ -1,6 +1,3 @@
-/Server/auth-routes.json
-/Server/firebaseConfig.js
-/ReactApp/src/components/firebaseConfig.js
 /ReactApp/node_modules/
 /ReactApp/build/
 /Server/node_modules/

@@ -18,15 +18,14 @@ it('runs fake test', async ()=> {
         const data = await request.get('/fake/test');
         console.log('results', data.body.results);
         expect(data.body.results).toBe("Fake Results");
-        //expect(1).toBe(1);
 });
 
 var server = app.listen(3001, function() {
     console.log('Running on port 3001');
 });
 
-// afterAll(done => {
+ afterAll(done => {
 //     dal.closeDB();
-//     server.close();
-//     done();
-// });
+     server.close();
+     done();
+ });

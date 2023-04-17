@@ -27,8 +27,8 @@ jobs:
             ${{ runner.os}}-bad-bank-build-
       - name: Install dependencies
         working-directory: './Server'     
-        run: npm install
-        run: npm run build --if-present
+        - run: npm install
+        - run: npm run build --if-present
         env: 
           CI: true
   deploy:

@@ -1,7 +1,7 @@
 name: Deployment Badbank
 run-name: ${{ github.actor }} deploying to S3 Bucket 🚀
 on: 
-  push
+  push:
     branches:
       - main
   pull_request:

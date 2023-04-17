@@ -200,7 +200,6 @@ app.get('/account/default', function(req,res) {
 
 app.post('/account/updateBalance', function(req, res) {
     console.log('updating Balance', req.body);
-   
     dal.updateBalance(req.body.userIdFrom, req.body.userIdTo, req.body.amount)
         .then((resp) => {
             //console.log(resp);
